@@ -2,15 +2,21 @@
 
 {% block content %}
    <h1>投票主題列表</h1>
+   <a href="{% url 'poll_create'%}">新增投票主題</a>
    <ul>
-  {% for poll in poll_list %}
-  <li>{{ poll.date_created }}- <a href="{{ poll.id }}/">{{ poll.subject }}</a> | <a href"{{ poll.id }}/update/">修改</a></li>
+       {% for poll in poll_list %}
+  <li>
+    {{ poll.created }}
+    - <a href="{{ poll.id }}/">{{ poll.subject }}</a> 
+    |<a href="{{ poll.id }}/update/">修改</a>
+    |<a href="{% url 'poll_delete' poll.id %}刪除</a>
+  </li>
   {% endfor %}
 </ul>
 {% endblock %}
 
-{% block page_title &}
+{% block page_title %}
 投票主題列表
-
+{% endblock %}
 
   

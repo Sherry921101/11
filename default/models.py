@@ -6,7 +6,7 @@ class Poll(models.Model):
     created = models.DateField(auto_now_add=True)
 
 def __str__(self):
-        return  str(self.id) + ":" + self.subject
+    return  str(self.id) + ":" + self.subject
 
 
 class Option(models.Model):
@@ -15,4 +15,4 @@ class Option(models.Model):
     count = models.IntegerField(default=0)
 
     def __str__(self):
-        return str(self.poll_id) + ": " + self.title
+       return str(self.id) + ':' + str(self.poll_id)+ ') ' + self.title
